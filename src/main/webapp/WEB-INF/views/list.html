@@ -58,12 +58,22 @@
         </tr>
         </tbody>
     </table>
-    <div align="center">
-        <a class="btn btn-primary" th:if="${products.hasPrevious()}"
-           th:href="@{/home(page=${products.number - 1}, search=${search})}">Previous</a>
-        <span th:text="${products.number + 1} + '/' + ${products.totalPages}"></span>
-        <a class="btn btn-primary" th:if="${products.hasNext()}"
-           th:href="@{/home(page=${products.number + 1}, search=${search})}">Next</a>
+    <div class="row">
+        <div class="col-6" align="right">
+            <a class="btn btn-primary" th:if="${products.hasPrevious()}"
+               th:href="@{/home(page=${products.number - 1}, search=${search}, size=${products.size})}">Previous</a>
+            <span th:text="${products.number + 1} + '/' + ${products.totalPages}"></span>
+            <a class="btn btn-primary" th:if="${products.hasNext()}"
+               th:href="@{/home(page=${products.number + 1}, search=${search}, size=${products.size})}">Next</a>
+        </div>
+        <div class="col-6" align="right">
+            <a class="btn btn-primary"
+               th:href="@{/home(search=${search}, size=3)}">3</a>
+            <a class="btn btn-primary"
+               th:href="@{/home(search=${search}, size=5)}">5</a>
+            <a class="btn btn-primary"
+               th:href="@{/home(search=${search}, size=7)}">7</a>
+        </div>
     </div>
 </div>
 </body>
